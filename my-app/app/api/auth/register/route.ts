@@ -1,10 +1,30 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { hash } from "bcrypt";
+import * as z from 'zod'
+
+// Define a schema for input validation
+// Define the schema with Zod
+const userSchema = z
+  .object({
+    username: z
+      .string()
+      .min(5, { message: "Username must be at least 5 characters." })
+      .max(15, { message: "Username can't be longer than 15 characters." }),
+    email: z
+      .string()
+      .min(1, { message: "This field has to be filled." })
+      .email("This is not a valid email.")
+      .max(300, { message: "Email can't be longer than 300 characters." }),
+    password: z
+      .string()
+      .min(6, { message: "Password must be at least 6 characters" }),
+  })
 
 export async function POST(request: Request) {
     try {
-        const { name, email, username, password } = await request.json();
+        const body = await request.json();
+        const { email, username, password } = userSchema.parse(body);
         
         // Check if email already exists
         const existingUserByEmail = await db.user.findUnique({
@@ -31,11 +51,13 @@ export async function POST(request: Request) {
             }
         });
 
+        const { password: newUserPassword, ...rest} = newUser;
+
         console.log({ email, password });
-        return NextResponse.json({ user: newUser, message: "User created successfully" }, { status: 201 });
+        return NextResponse.json({ user: rest, message: "User created successfully" }, { status: 201 });
     } catch (error: any) {
         console.error(error.message);
         // Return a response in case of an error
-        return NextResponse.json({ user: null, message: "Internal server error" }, { status: 500 });
+        return NextResponse.json({ message: "Internal server error" }, { status: 500 });
     }
 }
