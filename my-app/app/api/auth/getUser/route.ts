@@ -7,6 +7,5 @@ export async function GET() {
     if (!session) {
         return NextResponse.json({ error: "Not authorized" }), { status: 400}
     }
-
     return NextResponse.json({ success: session }, {status: 200})
 }

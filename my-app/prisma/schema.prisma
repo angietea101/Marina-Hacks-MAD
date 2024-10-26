@@ -14,8 +14,7 @@ datasource db {
 }
 
 model User {
-id String @id @default(uuid())
-name String
+id Int @id @default(autoincrement())
 username String @unique
 email String @unique
 password String
@@ -27,11 +26,11 @@ favoritePosts Post[] @relation("FavoritePosts")
 }
 
 model Post {
-id String @id @default(uuid())
+id Int @id @default(autoincrement())
 author User @relation("WrittenPosts", fields: [authorId], references: [id])
-authorId String
+authorId Int
 favoritedBy User? @relation("FavoritePosts",  fields: [favoritedById], references: [id])
-favoritedById String?
+favoritedById Int?
 
 title String
 order String
@@ -40,13 +39,13 @@ createdAt DateTime @default(now())
 image String
 
 categories Vendor @relation(fields: [vendorId], references: [id])
-vendorId String
+vendorId Int
 
 tags    Tag[]     @relation("PostTags") // Many-to-many relation with Tag
 }
 
 model Vendor {
-id String @id @default(uuid())
+id Int @id @default(autoincrement())
 resturantName String @unique
 posts Post[] 
 }
