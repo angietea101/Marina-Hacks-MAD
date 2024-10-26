@@ -14,37 +14,55 @@ datasource db {
 }
 
 model User {
-  id            String @id @default(uuid())
-  name          String
-  username      String @unique
-  birthdate     String
-  email         String @unique
-  password      String
-  writtenPosts  Post[] @relation("WrittenPosts")
-  favoritePosts Post[] @relation("FavoritePosts")
+id String @id @default(uuid())
+name String
+username String @unique
+email String @unique
+password String
+writtenPosts Post[] @relation("WrittenPosts") 
+favoritePosts Post[] @relation("FavoritePosts")
 
-  @@index([email])
+@@index ([email])
+
 }
 
 model Post {
-  id            String  @id @default(uuid())
-  author        User    @relation("WrittenPosts", fields: [authorId], references: [id])
-  authorId      String
-  favoritedBy   User?   @relation("FavoritePosts", fields: [favoritedById], references: [id])
-  favoritedById String?
+id String @id @default(uuid())
+author User @relation("WrittenPosts", fields: [authorId], references: [id])
+authorId String
+favoritedBy User? @relation("FavoritePosts",  fields: [favoritedById], references: [id])
+favoritedById String?
 
-  title     String
-  order     String
-  vote      Int
-  createdAt DateTime @default(now())
-  image     String
+title String
+order String
+vote Int
+createdAt DateTime @default(now())
+image String
 
-  categories Vendor @relation(fields: [vendorId], references: [id])
-  vendorId   String
+categories Vendor @relation(fields: [vendorId], references: [id])
+vendorId String
+
+tags    Tag[]     @relation("PostTags") // Many-to-many relation with Tag
 }
 
 model Vendor {
-  id            String @id @default(uuid())
-  resturantName String @unique
-  posts         Post[]
+id String @id @default(uuid())
+resturantName String @unique
+posts Post[] 
+}
+
+model Tag{
+  id       Int       @id @default(autoincrement())
+  type     TagType   
+  posts    Post[]   @relation("PostTags") 
+}
+
+enum TagType {
+  SWEET
+  SPICY
+  SALTY
+  SOUR
+  BITTER
+  BLAND
+  SAVORY
 }
