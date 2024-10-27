@@ -32,11 +32,6 @@ const Header = () => {
                                             Log in
                                         </button>
                                     </Link>
-                                    <Link href="/register">
-                                        <button className="bg-secondary text-white py-2 px-4 rounded-full">
-                                            Sign up
-                                        </button>
-                                    </Link>
                                 </>
                             )}
                         </div>
