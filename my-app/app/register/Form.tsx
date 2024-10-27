@@ -5,6 +5,7 @@ import { z } from "zod"
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from "sonner"
+import { useRouter } from 'next/navigation'
 
 // Define the schema with Zod
 const formSchema = z
@@ -39,6 +40,7 @@ const formSchema = z
 type FormSchemaType = z.infer<typeof formSchema>
 
 const RegisterForm: React.FC = () => {
+    const router = useRouter();
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
     })
@@ -46,16 +48,25 @@ const RegisterForm: React.FC = () => {
     async function onSubmit(values: z.infer<typeof formSchema>) {
         const response = await fetch('/api/auth/register', {
             method: "POST",
-            body: JSON.stringify(values)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: values.username,
+                email: values.email,
+                password: values.password
+            })
         })
 
         const data = await response.json()
 
-        if (data.error) {
+        if (response.ok) {
+            router.push('/login')
+            toast.success("Account created!");
+        } else {
+            console.log("Registration failed.")
             toast.error(data.error);
         }
-
-        toast.success("Account created!");
     }
 
     return (
