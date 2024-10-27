@@ -40,7 +40,7 @@ const LoginForm = () => {
                 <span className="cursor-default text-[20px] text-white pr-2">
                 Don't have an account?   </span> 
                 <Link 
-                className="pl-2 text-[20px] bg-yellow-900 text-white px-2 py-1 rounded" href="/register">Sign up</Link>
+                className="pl-2 text-[20px] bg-yellow-900 text-white px-2 py-1 rounded" href="/register">Register</Link>
               </div>
             </div>
           </form>
