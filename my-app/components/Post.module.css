@@ -1,0 +1,37 @@
+.container {
+  background-color: #f8f5ed;
+}
+
+.postContainer {
+  background-color: #d6b483;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: 3rem auto;
+  width: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.postContainer h3 {
+  color: white;
+  margin-right: 1rem;
+  font-weight: 800;
+}
+
+.postContainer p {
+  color: white;
+  margin-top: 1rem;
+}
+
+.subjectWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.subjectWrapper h3 {
+  margin-right: 1rem;
+}
+
+.subjectWrapper h3:last-child {
+  margin-right: 0;
+}

@@ -1,16 +1,11 @@
 import Image from "next/image";
-import Header from "@/components/homepage/header";
-import Hero from "@/components/homepage/hero";
-import Features from "@/components/homepage/featured";
-import Recent from "@/components/homepage/recent"
+import HomePage from "@/components/HomePage";
+import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <main className="bg-primary min-h-screen w-full">
-      <Header/>
-      <Hero/>
-      <Features/>
-      <Recent/>
+    <main className={styles.container}>
+      <HomePage />
     </main>
   );
 }

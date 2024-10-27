@@ -11,7 +11,7 @@ const page = async () => {
         redirect("/")
     }
   return (
-    <section className='container h-screen flex items-center justify-center'>
+    <section className='bg-primary'>
         <LoginForm />
     </section>
   )
