@@ -4,6 +4,7 @@ import { Session } from "inspector/promises";
 import './globals.css'; 
 import { Nunito_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
+import { twMerge } from "tailwind-merge";
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
@@ -22,8 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <SessionWrapper>
     <html lang="en">
-      <body className={`${nunitoSans.variable} font-sans`}>{children}</body>
+      <body className={`${nunitoSans.variable} font-sans`}>
+        {children}
+        </body>
     </html>
+    </SessionWrapper>
   );
 }
