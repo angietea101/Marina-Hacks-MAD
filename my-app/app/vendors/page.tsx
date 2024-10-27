@@ -15,6 +15,11 @@ const page = async () => {
   return (
     <main className={styles.container}>
       <div className={styles.topWrapper}>
+        <Link className={styles.backButton} href="/">
+            <div className={styles.backButtonCircle}>
+                <div className={`${styles.arrow} ${styles.left}`}></div>
+            </div>
+        </Link>
         <div className={`${styles.rectangle} flex flex-col pl-0`}>
           <h3 className="text-white font-bold text-xl text-left">
             Find the best orders at your favorite restaurants!
