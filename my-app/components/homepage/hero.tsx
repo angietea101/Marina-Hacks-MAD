@@ -15,7 +15,7 @@ export const Hero = () => {
                     <button className="w-[180px] h-[65px] bg-secondary text-white py-2 px-4 rounded-[28px] hover:shadow-md text-[22px]">create post</button>
                 </div>
             </div>
-            <div className="ml-20">
+            <div className="mr-20">
                 <Image src={Girl} alt="Girl" height={200} width={350} className="object-contain"/>
             </div>
             </div>
