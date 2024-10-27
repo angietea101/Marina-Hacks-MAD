@@ -1,8 +1,8 @@
 .container {
   background-color: #f8f5ed;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
   margin: 3rem auto;
-  height: 100vh;
+  position: relative;
 }
 
 .vendorWrapper {

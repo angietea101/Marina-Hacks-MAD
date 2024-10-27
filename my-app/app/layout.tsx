@@ -5,6 +5,7 @@ import './globals.css';
 import { Nunito_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import { twMerge } from "tailwind-merge";
+import styles from './page.module.css'
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <SessionWrapper>
     <html lang="en">
-      <body className={`${nunitoSans.variable} font-sans`}>
+      <body className={`${styles.container} ${nunitoSans.variable} font-sans`}>
         {children}
         </body>
     </html>

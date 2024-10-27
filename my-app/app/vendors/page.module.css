@@ -1,6 +1,7 @@
 .container {
   background-color: #f8f5ed;
   height: 100vh;
+  padding-bottom: 5rem;
 }
 
 .topWrapper {
