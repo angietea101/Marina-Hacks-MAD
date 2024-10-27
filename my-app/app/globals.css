@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .text {
-  @apply w-[401px] h-[108px] pl-4 mb-0.5 text-neutral-100 text-[70px] font-extrabold font-sans
+  @apply w-[401px] h-[108px] pl-4 mb-0.5 text-neutral-100 text-[80px] font-extrabold font-sans
 }
 
 .inputTitle{
