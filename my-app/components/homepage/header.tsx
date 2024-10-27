@@ -12,7 +12,9 @@ const header = () => {
                 <div className="container mx-auto pl-12 pr-12">
                     <div className="flex items-center justify-between">
                         {/* Logo image */}
-                        <img src="/logo.png" alt="Logo" height={160} width={170} />
+                        <Link href={"/"}>
+                            <img src="/logo.png" alt="Logo" height={160} width={170} />
+                        </Link>
                         
                         {/* Conditional Buttons based on session */}
                         <div className="flex space-x-4">
