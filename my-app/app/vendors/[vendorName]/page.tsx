@@ -63,7 +63,7 @@ export default async function VendorPage({
                 <img src={vendorImages.background} alt={`${params.vendorName} background`} className={styles.vendorImage} />
                 <h1 className={styles.vendorTitle}>{params.vendorName}</h1>
                 <Link className={styles.createPostButton} href={`${params.vendorName}/create-post?vendorName=${params.vendorName}`}>
-                    <span className="plus-sign">+</span>
+                    <h1 className={styles.plusSign}></h1>
                 </Link>
             </div>
             {posts.map((post) => (
