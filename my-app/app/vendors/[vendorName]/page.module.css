@@ -48,15 +48,15 @@
 
 .backButton {
   position: absolute;
-  top: 1.5rem; /* Adjust the vertical position */
-  left: 1.5rem; /* Adjust the horizontal position */
-  text-decoration: none; /* Remove underline */
-  opacity: 0.7; /* Set low opacity */
-  transition: opacity 0.3s; /* Transition for hover effect */
+  top: 1.5rem;
+  left: 1.5rem;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
 .backButton:hover {
-  opacity: 1; /* Full opacity on hover */
+  opacity: 1;
 }
 
 .backButtonCircle {
