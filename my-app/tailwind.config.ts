@@ -9,6 +9,12 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1025px',
+      'xl': '1280px'
+    },
     extend: {
 	fontWeight: {
 		extrabold: '1000',
