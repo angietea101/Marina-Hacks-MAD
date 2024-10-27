@@ -3,7 +3,6 @@ import { db } from "@/lib/db";
 import { hash } from "bcrypt";
 import * as z from 'zod'
 
-// Define a schema for input validation
 // Define the schema with Zod
 const userSchema = z
   .object({

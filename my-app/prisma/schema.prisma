@@ -32,16 +32,15 @@ model Post {
   favoritedById Int?
 
   title     String
-  content   String?
-  price     Float
+  content   String
+  price     Float?
   published Boolean  @default(false)
-  order     String
   vote      Int
   createdAt DateTime @default(now())
-  image     String
+  image     String?
 
-  categories Vendor @relation(fields: [vendorId], references: [id])
-  vendorId   Int
+  vendor   Vendor @relation(fields: [vendorId], references: [id])
+  vendorId Int
 
   tags Tag[] @relation("PostTags") // Many-to-many relation with Tag
 }
