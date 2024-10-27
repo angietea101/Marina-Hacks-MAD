@@ -6,7 +6,7 @@ import React from "react";
 
 export const Hero = () => {
     return (
-       <section className="mr-50 ml-8 bg-primary mb-20">
+       <section className="mr-50 ml-8 bg-primary mb-20 pl-12 pr-12">
         <div className="container">
             <div className="flex">
             <div>
