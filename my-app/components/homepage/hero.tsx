@@ -10,7 +10,7 @@ export const Hero = () => {
         <div className="container">
             <div className="flex">
             <div>
-                <h1 className="font-teachers font-extrabold w-[600px] h-[150px] ml-20 text-black text-6xl mt-10 mb-10 mr-4 leading-tight">LET’S GET CUSTOMIZING!</h1>
+                <h1 className="font-teachers font-extrabold w-[600px] h-[150px] ml-20 text-black text-6xl mt-10 mb-10 leading-tight">LET’S GET CUSTOMIZING!</h1>
                 <div className="flex items-center justify-between mt-3 pl-40 ">
                     <button className="w-[180px] h-[65px] bg-secondary text-white py-2 px-4 rounded-[28px] hover:shadow-md text-[22px]">create post</button>
                 </div>
