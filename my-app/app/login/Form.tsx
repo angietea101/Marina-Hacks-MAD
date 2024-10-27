@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const LoginForm = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen w-full bg-primary">
+    <div className="flex items-center justify-center min-h-screen w-full bg-primary overflow-x-clip">
       <div className="w-full max-w-md md:max-w-lg lg:max-w-xl mx-auto px-4">
         <img src="/logo.png" alt="Logo" className="h-20 w-auto mb-6 mx-auto" />
         

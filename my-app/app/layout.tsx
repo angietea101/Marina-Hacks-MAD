@@ -1,15 +1,13 @@
-
 import SessionWrapper from "@/components/SessionWrapper";
-import { Session } from "inspector/promises";
 import './globals.css'; 
-import { Nunito_Sans } from 'next/font/google';
+import { Nunito_Sans} from 'next/font/google';
+import Head from 'next/head';
 import type { Metadata } from 'next';
-import { twMerge } from "tailwind-merge";
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
-  weight: ['400', '700'], // Specify weights as needed
-  variable: '--font-nunito-sans', // Define CSS variable for font
+  weight: ['400', '700'], // Adjust weights as needed for Nunito Sans
+  variable: '--font-nunito-sans',
 });
 
 export const metadata: Metadata = {
@@ -23,12 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SessionWrapper>
     <html lang="en">
       <body className={`${nunitoSans.variable} font-sans`}>
         {children}
-        </body>
+      </body>
     </html>
-    </SessionWrapper>
   );
 }
