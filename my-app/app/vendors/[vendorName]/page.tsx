@@ -57,6 +57,11 @@ export default async function VendorPage({
     return (
         <div className={styles.container}>
             <div className={styles.vendorWrapper}>
+                <Link className={styles.backButton} href="/">
+                    <div className={styles.backButtonCircle}>
+                        <div className={`${styles.arrow} ${styles.left}`}></div>
+                    </div>
+                </Link>
                 <div className={styles.circle}>
                     <img src={vendorImages.logo} alt="Circle Image" />
                 </div>
