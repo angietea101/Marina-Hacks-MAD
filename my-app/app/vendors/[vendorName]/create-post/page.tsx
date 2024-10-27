@@ -1,20 +1,15 @@
-"use client";
-import Link from 'next/link';
+"use client"
+
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 export default function CreatePost() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const router = useRouter();
-
-    const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.target.value);
-    };
-
-    const handleContentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setContent(event.target.value);
-    };
+    const searchParams = useSearchParams();
+    const vendorName = searchParams.get('vendorName');
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -22,12 +17,10 @@ export default function CreatePost() {
         try {
             await fetch('/api/create-post', {
                 method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ title, content })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, content, vendorName: vendorName })
             });
-            router.refresh();
+            router.push(`/vendors/${vendorName}`);
         } catch (error) {
             console.error(error);
         }
@@ -38,8 +31,8 @@ export default function CreatePost() {
 
     return (
         <main>
-            <Link href="/">View Feed</Link>
-            <h1>Create Post</h1>
+            <Link href={`/vendors/${vendorName}`}>View Feed</Link>
+            <h1>Create Post for {vendorName}</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="title">Title:</label>
@@ -47,7 +40,7 @@ export default function CreatePost() {
                         type="text"
                         id="title"
                         value={title}
-                        onChange={handleTitleChange}
+                        onChange={(e) => setTitle(e.target.value)}
                         required
                     />
                 </div>
@@ -56,7 +49,7 @@ export default function CreatePost() {
                     <textarea
                         id="content"
                         value={content}
-                        onChange={handleContentChange}
+                        onChange={(e) => setContent(e.target.value)}
                         required
                     />
                 </div>

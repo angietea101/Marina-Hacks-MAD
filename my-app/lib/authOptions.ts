@@ -6,9 +6,9 @@ import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
     adapter: PrismaAdapter(db),
+    secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: 'jwt',
-        maxAge: 24 * 60 * 60, // 1 day in seconds
     },
     pages:{
         signIn: '/login'
@@ -44,8 +44,9 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 return {
-                    id: '${existingUser.id}',
-                    username: existingUser.username,
+                    id: `${existingUser.id}`,
+                    name: existingUser.username,
+                    email: existingUser.email,
                 }
             }
         })
