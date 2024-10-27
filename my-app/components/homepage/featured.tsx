@@ -12,7 +12,9 @@ const Features = () => {
     return(
         <div className="container mx-auto pl-12 pr-12">
             <p className="text-4xl font-bold text-black text-left ">featured restaurants</p>
-            <p className="text-3xl font-regular text-black text-right pb-10 ">browse all</p>
+            <Link href={"vendors"}>
+                <p className="text-3xl font-regular text-black text-right pb-10 ">browse all</p>
+            </Link>
         <div className="ml-7 grid grid-cols-6 gap-8">
             <Link href = "vendors/subway">
                 <button className="w-[140px] h-[170px] rounded-[100px] shadow-md bg-white hover:shadow-xl hover:bg-secondary border-4 border-secondary z-0">
