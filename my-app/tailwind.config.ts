@@ -16,11 +16,12 @@ const config: Config = {
       'xl': '1280px'
     },
     extend: {
-	fontWeight: {
-		extrabold: '1000',
-	  },
+    fontWeight: {
+        extrabold: '800',
+      },
       fontFamily: {
-        sans: ['var(--font-nunito-sans)', 'sans-serif'], // Use the CSS variable here
+        sans: ['var(--font-nunito-sans)', 'sans-serif'],
+        teachers: ['Teachers', 'sans-serif'], // Use the CSS variable here
       },
       colors: {
         background: "var(--background)",
