@@ -1,8 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {
-  :root {
-    --radius: 0.5rem
-  }
+
+.text {
+  @apply w-[401px] h-[108px] pl-4 mb-0.5 text-neutral-100 text-[70px] font-extrabold font-sans
+}
+
+.inputTitle{
+  @apply w-[205px] h-[39px] pl-5 mb-0.5 text-neutral-100 text-[25px] font-normal font-sans
 }
