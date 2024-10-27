@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from "sonner"
 import { useRouter } from 'next/navigation'
 
+
 // Define the schema with Zod
 const formSchema = z
   .object({
@@ -70,102 +71,105 @@ const RegisterForm: React.FC = () => {
     }
 
     return (
-        <div className="w-full max-w-xs">
-            <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-            >
-                {/* Username Field */}
-                <div className="mb-4">
-                    <label
-                        className="block text-gray-700 text-sm font-bold mb-2"
-                        htmlFor="username"
-                    >
-                        Username
-                    </label>
-                    <input
-                        {...form.register("username")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="username"
-                        type="text"
-                        placeholder="Username"
-                    />
-                    <p className="text-red-500 text-xs italic">
-                        {form.formState.errors.username?.message}
-                    </p>
-                </div>
-
-                {/* Email Field */}
-                <div className="mb-4">
-                    <label
-                        className="block text-gray-700 text-sm font-bold mb-2"
-                        htmlFor="email"
-                    >
-                        Email
-                    </label>
-                    <input
-                        {...form.register("email")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        type="email"
-                        placeholder="Email"
-                    />
-                    <p className="text-red-500 text-xs italic">
-                        {form.formState.errors.email?.message}
-                    </p>
-                </div>
-
-                {/* Password Field */}
-                <div className="mb-4">
-                    <label
-                        className="block text-gray-700 text-sm font-bold mb-2"
-                        htmlFor="password"
-                    >
-                        Password
-                    </label>
-                    <input
-                        {...form.register("password")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="password"
-                        type="password"
-                        placeholder="Password"
-                    />
-                    <p className="text-red-500 text-xs italic">
-                        {form.formState.errors.password?.message}
-                    </p>
-                </div>
-
-                {/* Confirm Password Field */}
-                <div className="mb-6">
-                    <label
-                        className="block text-gray-700 text-sm font-bold mb-2"
-                        htmlFor="confirmPassword"
-                    >
-                        Confirm Password
-                    </label>
-                    <input
-                        {...form.register("confirmPassword")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="confirmPassword"
-                        type="password"
-                        placeholder="Confirm Password"
-                    />
-                    <p className="text-red-500 text-xs italic">
-                        {form.formState.errors.confirmPassword?.message}
-                    </p>
-                </div>
-
-                <div className="flex items-center justify-between">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        type="submit"
-                    >
-                        Register
-                    </button>
-                </div>
-            </form>
+        <div className={"w-full h-screen grid bg-primary"}>
+            <div className="m-auto">
+                <img src="/logo.png" alt="logo" className="h-30 w-50 mb-10 mx-auto" />
+                <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="bg-secondary shadow-md rounded-[30px] px-10 pt-6 pb-8 mb-4 w-[500px]" // Adjusted width
+                >
+                    {/* Username Field */}
+                    <div className="mb-4">
+                        <label
+                            className="block text-white text-base font-bold mb-2"
+                            htmlFor="username"
+                        >
+                            Username
+                        </label>
+                        <input
+                            {...form.register("username")}
+                            className="shadow appearance-none border rounded-full w-full h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" // Increased height
+                            id="username"
+                            type="text"
+                            placeholder="Username"
+                        />
+                        <p className="text-red-500 text-xs italic">
+                            {form.formState.errors.username?.message}
+                        </p>
+                    </div>
+    
+                    {/* Email Field */}
+                    <div className="mb-4">
+                        <label
+                            className="block text-white text-base font-bold mb-2"
+                            htmlFor="email"
+                        >
+                            Email
+                        </label>
+                        <input
+                            {...form.register("email")}
+                            className="shadow appearance-none border rounded-full w-full h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" // Increased height
+                            id="email"
+                            type="email"
+                            placeholder="Email"
+                        />
+                        <p className="text-red-500 text-xs italic">
+                            {form.formState.errors.email?.message}
+                        </p>
+                    </div>
+    
+                    {/* Password Field */}
+                    <div className="mb-4">
+                        <label
+                            className="block text-white text-base font-bold mb-2"
+                            htmlFor="password"
+                        >
+                            Password
+                        </label>
+                        <input
+                            {...form.register("password")}
+                            className="shadow appearance-none border rounded-full w-full h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" // Increased height
+                            id="password"
+                            type="password"
+                            placeholder="Password"
+                        />
+                        <p className="text-red-500 text-xs italic">
+                            {form.formState.errors.password?.message}
+                        </p>
+                    </div>
+    
+                    {/* Confirm Password Field */}
+                    <div className="mb-6">
+                        <label
+                            className="block text-white text-base font-bold mb-2"
+                            htmlFor="confirmPassword"
+                        >
+                            Confirm Password
+                        </label>
+                        <input
+                            {...form.register("confirmPassword")}
+                            className="shadow appearance-none border rounded-full w-full h-[50px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" // Increased height
+                            id="confirmPassword"
+                            type="password"
+                            placeholder="Confirm Password"
+                        />
+                        <p className="text-red-500 text-xs italic">
+                            {form.formState.errors.confirmPassword?.message}
+                        </p>
+                    </div>
+    
+                    <div className="flex items-center justify-center mt-6">
+                        <button
+                            className="w-[160px] h-[50px] cursor-pointer bg-primary rounded-[50px] p-1 hover:shadow-md font-sans text-lg text-secondary text-[24px]" // Adjusted button size
+                            type="submit"
+                        >
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-    )
+    );    
 }
 
 export default RegisterForm

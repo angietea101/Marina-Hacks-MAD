@@ -40,7 +40,7 @@ const LoginForm = () => {
     if (loginData?.error) {
       console.log(loginData.error);
     } else {
-      router.push('/admin'); 
+      router.push('/'); 
     }
   };
 
@@ -50,11 +50,11 @@ const LoginForm = () => {
         <div className="m-auto">
           <img src="/logo.png" alt="Logo" className="h-30 w-50 mb-10 mx-auto" />
           <form 
-            className="border pt-6 pb-8 pl-10 pr-10 bg-secondary rounded-[30px] shadow-md"
+            className="bg-secondary shadow-md rounded-[30px] px-8 pt-6 pb-8 mb-4"
             onSubmit={form.handleSubmit(onSubmit)} // Bind handleSubmit to the form
           >
             <div className="flex flex-col gap-2">
-              <div className="text">
+              <div className="text mb-4">
                 login
               </div>
               <label className="inputTitle">
@@ -88,12 +88,12 @@ const LoginForm = () => {
                   value="login"
                 />
               </div>
-              <div className="mt-5 flex justify-center">
+              <div className="mt-5 flex justify-center items-center">
                 <span className="cursor-default text-[20px] text-white pr-2">
                   Don't have an account?
                 </span> 
                 <Link 
-                  className="pl-2 text-[20px] bg-yellow-900 text-white px-2 py-1 rounded" 
+                  className="ml-2 text-[20px] bg-yellow-900 text-white px-2 py-1 rounded" 
                   href="/register"
                 >
                   Register
