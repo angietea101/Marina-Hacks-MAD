@@ -23,10 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${styles.container} ${nunitoSans.variable} font-sans`}>
-        {children}
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body className={`${styles.container} ${nunitoSans.variable} font-sans`}>
+          {children}
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

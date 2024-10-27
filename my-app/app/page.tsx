@@ -7,8 +7,11 @@ import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <main className={styles.container}>
-      <HomePage />
-    </main>
+      <main className={styles.container}>
+        <Header/>
+        <Hero/>
+        <Features/>
+        <Recent/>
+      </main>
   );
 }
