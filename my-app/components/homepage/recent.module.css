@@ -1,0 +1,15 @@
+.foodRectangleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foodRectangle {
+  background-color: #d6b483;
+  border-radius: 2rem;
+  overflow: hidden;
+  height: 18.125rem;
+  width: 15.62rem;
+  position: relative;
+  margin: 1rem;
+}

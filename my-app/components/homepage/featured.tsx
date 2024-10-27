@@ -13,7 +13,7 @@ const Features = () => {
     return(
         <div className="container mx-auto pl-12 pr-12">
             <div className={styles.featuredTitle}>
-                <p className="text-4xl font-bold text-black">Featured Restaurants</p>
+                <p className="text-4xl font-bold text-black">featured food spots</p>
                 <Link href={"vendors"}>
                     <p className="text-2xl font-regular text-black">Browse All</p>
                 </Link>
