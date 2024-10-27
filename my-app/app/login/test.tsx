@@ -25,7 +25,7 @@ const FormSchema = z.object({
     .min(8, 'Password must have than 8 characters'),
 });
 
-const LoginForm = () => {
+const SignInForm = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -96,4 +96,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignInForm;
