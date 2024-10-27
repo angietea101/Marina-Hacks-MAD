@@ -1,12 +1,11 @@
 "use client";
 
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import React from 'react';
 import Link from "next/link";
 
 const HomePage = () => {
     const { data: session } = useSession();
-    
     return (
         <>
             <header className="sticky top-0 py-5">
@@ -18,21 +17,29 @@ const HomePage = () => {
                         {/* Conditional Buttons based on session */}
                         <div className="flex space-x-4">
                             {session ? (
-                                <Link href="/profile">
-                                    <button className="bg-primary text-white py-2 px-4 rounded-full">
-                                        Profile
+                                <>
+                                    <Link href="/profile">
+                                        <button className="bg-primary text-white py-2 px-4 rounded-full">
+                                            Profile
+                                        </button>
+                                    </Link>
+                                    <button 
+                                        onClick={() => signOut({ callbackUrl: "/login" })} 
+                                        className="bg-red-500 text-white py-2 px-4 rounded-full"
+                                    >
+                                        Logout
                                     </button>
-                                </Link>
+                                </>
                             ) : (
                                 <>
                                     <Link href="/login">
                                         <button className="bg-primary text-white py-2 px-4 rounded-full">
-                                            log in
+                                            Log in
                                         </button>
                                     </Link>
                                     <Link href="/register">
                                         <button className="bg-secondary text-white py-2 px-4 rounded-full">
-                                            sign up
+                                            Sign up
                                         </button>
                                     </Link>
                                 </>
@@ -47,4 +54,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
