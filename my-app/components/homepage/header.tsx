@@ -4,7 +4,7 @@ import { useSession, signOut } from 'next-auth/react';
 import React from 'react';
 import Link from "next/link";
 
-const Header = () => {
+const header = () => {
     const { data: session } = useSession();
     return (
         <>
@@ -28,7 +28,7 @@ const Header = () => {
                             ) : (
                                 <>
                                     <Link href="/login">
-                                        <button className="bg-red-600 text-white py-2 px-4 rounded-full">
+                                        <button className="bg-secondary text-white py-2 px-4 rounded-full">
                                             Log in
                                         </button>
                                     </Link>
@@ -43,4 +43,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default header;
