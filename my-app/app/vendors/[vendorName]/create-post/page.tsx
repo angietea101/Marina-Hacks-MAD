@@ -31,7 +31,7 @@ export default function CreatePost() {
 
     return (
         <main className="w-full h-screen bg-primary flex items-center justify-center">
-            <div className="bg-secondary p-8 rounded-lg shadow-md max-w-md w-full">
+            <div className="bg-secondary p-8 rounded-2xl shadow-md max-w-md w-full">
             <Link 
     href={`/vendors/${vendorName}`} 
     className="bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center"
@@ -50,7 +50,7 @@ export default function CreatePost() {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
-                            className="w-full p-4 rounded-lg shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Enter post title"
                         />
                     </div>
@@ -63,8 +63,8 @@ export default function CreatePost() {
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             required
-                            className="w-full p-4 rounded-lg shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Write your content here..."
+                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder= "Write your content here..."
                         />
                     </div>
                     <button
