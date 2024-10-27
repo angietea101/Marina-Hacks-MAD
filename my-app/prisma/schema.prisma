@@ -14,47 +14,47 @@ datasource db {
 }
 
 model User {
-id Int @id @default(autoincrement())
-username String @unique
-email String @unique
-password String
-writtenPosts Post[] @relation("WrittenPosts") 
-favoritePosts Post[] @relation("FavoritePosts")
+  id            Int    @id @default(autoincrement())
+  username      String @unique
+  email         String @unique
+  password      String
+  writtenPosts  Post[] @relation("WrittenPosts")
+  favoritePosts Post[] @relation("FavoritePosts")
 
-@@index ([email])
-
+  @@index([email])
 }
 
 model Post {
-id Int @id @default(autoincrement())
-author User @relation("WrittenPosts", fields: [authorId], references: [id])
-authorId Int
-favoritedBy User? @relation("FavoritePosts",  fields: [favoritedById], references: [id])
-favoritedById Int?
+  id            Int   @id @default(autoincrement())
+  author        User  @relation("WrittenPosts", fields: [authorId], references: [id])
+  authorId      Int
+  favoritedBy   User? @relation("FavoritePosts", fields: [favoritedById], references: [id])
+  favoritedById Int?
 
-title String
-order String
-price Float
-vote Int
-createdAt DateTime @default(now())
-image String
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  order     String
+  vote      Int
+  createdAt DateTime @default(now())
+  image     String
 
-categories Vendor @relation(fields: [vendorId], references: [id])
-vendorId Int
+  categories Vendor @relation(fields: [vendorId], references: [id])
+  vendorId   Int
 
-tags    Tag[]     @relation("PostTags") // Many-to-many relation with Tag
+  tags Tag[] @relation("PostTags") // Many-to-many relation with Tag
 }
 
 model Vendor {
-id Int @id @default(autoincrement())
-resturantName String @unique
-posts Post[] 
+  id            Int    @id @default(autoincrement())
+  resturantName String @unique
+  posts         Post[]
 }
 
-model Tag{
-  id       Int       @id @default(autoincrement())
-  type     TagType   
-  posts    Post[]   @relation("PostTags") 
+model Tag {
+  id    Int     @id @default(autoincrement())
+  type  TagType
+  posts Post[]  @relation("PostTags")
 }
 
 enum TagType {
