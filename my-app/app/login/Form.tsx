@@ -1,99 +1,54 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from "@/components/ui/input"
-
-import { Button } from "@/components/ui/button"
-import Link from 'next/link';
-import { signIn} from 'next-auth/react'
-
-const FormSchema = z.object({
-  email: z.string().min(1, 'Email is required').email('Invalid email'),
-  password: z
-    .string()
-    .min(1, 'Password is required')
-    .min(8, 'Password must have than 8 characters'),
-});
+import Link from "next/link";
 
 const LoginForm = () => {
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    const loginData = await signIn('Credentials', {
-        email: values.email,
-        password: values.password,
-    })
-    console.log(loginData)
-
-  };
-
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
-        <div className='space-y-2'>
-          <FormField
-            control={form.control}
-            name='email'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder='mail@example.com' {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='password'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Password</FormLabel>
-                <FormControl>
-                  <Input
-                    type='password'
-                    placeholder='Enter your password'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <>
+      <div className="w-full h-screen grid bg-primary">
+        <div className="m-auto">
+          <img src="/logo.png" alt="Logo" className="h-30 w-50 mb-10 mx-auto" />
+          <form className="border pt-6 pb-8 pl-10 pr-10 bg-secondary rounded-[30px] shadow-md">
+            <div className="flex flex-col gap-2">
+              <div className="text">
+                login
+              </div>
+              <label className="inputTitle">
+                username
+              </label>
+              <input
+                className="w-[450px] h-[66px] mb-8 rounded-[50px] p-5 font-sans text-input text-[23px]"
+                type="text"
+                placeholder="your username"
+              />
+              <label className="inputTitle">
+                password
+              </label>
+              <input
+                className="w-[450px] h-[66px] rounded-[50px] p-5 font-sans text-input text-[23px]"
+                type="password"
+                placeholder="password"
+              />
+              <div className="flex justify-center mt-6">
+                <input
+                  type="submit"
+                  className="w-[156px] h-[66px] cursor-pointer bg-primary rounded-[50px] p-1 hover:shadow-md mt-5 font-sans text-lg text-secondary text-[36px]"
+                  value="login"
+                />
+              </div>
+              <div className="mt-5 flex justify-center">
+                <span className="cursor-default text-[20px] text-white pr-2">
+                Don't have an account?   </span> 
+                <Link 
+                className="pl-2 text-[20px] bg-yellow-900 text-white px-2 py-1 rounded" href="/register">Sign up</Link>
+              </div>
+            </div>
+          </form>
         </div>
-        <Button className='w-full mt-6' type='submit'>
-          Sign in
-        </Button>
-      </form>
-      <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:block before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
-        or
       </div>
-
-      <p className='text-center text-sm text-gray-600 mt-2'>
-        If you don&apos;t have an account, please&nbsp;
-        <Link className='text-blue-500 hover:underline' href='/sign-up'>
-          Sign up
-        </Link>
-      </p>
-    </Form>
+    </>
   );
 };
 
 export default LoginForm;
+
