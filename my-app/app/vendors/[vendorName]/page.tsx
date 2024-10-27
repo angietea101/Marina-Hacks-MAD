@@ -1,6 +1,22 @@
 import { db } from "@/lib/db";
 import Post from "@/components/Post";
 import Link from "next/link";
+import styles from './page.module.css';
+
+const imageMap = {
+    subway: {
+        background: '/subway-background.png',
+        logo: '/subway-circle-logo.png',
+    },
+    chipotle: {
+        background: '/chipotle-background.jpg',
+        logo: '/chipotle-circle-logo.png',
+    },
+    dominos: {
+        background: '/dominos-background.jpg',
+        logo: '/dominos-circle-logo.png',
+    },
+};
 
 async function getPosts(vendorName: string) {
     const posts = await db.post.findMany({
@@ -9,7 +25,7 @@ async function getPosts(vendorName: string) {
             vendor: {
                 vendorName: {
                     equals: vendorName,
-                    mode: 'insensitive', // This makes the search case-insensitive
+                    mode: 'insensitive', 
                 }
             }
         },
@@ -32,11 +48,21 @@ export default async function VendorPage({
     params: { vendorName: string };
 }) {
     const posts = await getPosts(params.vendorName);
+    const vendor = params.vendorName.toLowerCase() as keyof typeof imageMap;
+    const vendorImages = imageMap[vendor];
 
     return (
-        <div>
-            <Link href={`${params.vendorName}/create-post?vendorName=${params.vendorName}`} className="text-blue-600">Create Post</Link>
-            <h1>Vendor Page {params.vendorName}</h1>
+        <div className={styles.container}>
+            <div className={styles.vendorWrapper}>
+                <div className={styles.circle}>
+                    <img src={vendorImages.logo} alt="Circle Image" />
+                </div>
+                <img src={vendorImages.background} alt={`${params.vendorName} background`} className={styles.vendorImage} />
+                <h1 className={styles.vendorTitle}>{params.vendorName}</h1>
+                <Link className={styles.createPostButton} href={`${params.vendorName}/create-post?vendorName=${params.vendorName}`}>
+                    <span className="plus-sign">+</span>
+                </Link>
+            </div>
             {posts.map((post) => (
                 <Post 
                     key={post.id}

@@ -1,4 +1,5 @@
 import { User } from "@prisma/client";
+import styles from "./Post.module.css";
 
 type PostProps = {
     id: number;
@@ -10,11 +11,15 @@ type PostProps = {
 
 export default function Post({ id, title, content, author, vendor }: PostProps) {
     return (
-        <div>
-            <h3>{author.username}</h3>
-            <h4>{title}</h4>
-            <p>{content}</p>
-            <p>{vendor.vendorName}</p>
+        <div className={styles.container}>
+            <div className={styles.postContainer}>
+                <div className={styles.subjectWrapper}>
+                    <h3>{title}</h3>
+                    <h3>-</h3>
+                    <h3>{author.username}</h3>
+                </div>
+                <p>{content}</p>
+            </div>
         </div>
     );
 }

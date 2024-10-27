@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import styles from './page.module.css'
 
 export default function CreatePost() {
     const [title, setTitle] = useState('');
@@ -30,7 +31,7 @@ export default function CreatePost() {
     };
 
     return (
-        <main>
+        <main className={styles.container}>
             <Link href={`/vendors/${vendorName}`}>View Feed</Link>
             <h1>Create Post for {vendorName}</h1>
             <form onSubmit={handleSubmit}>
