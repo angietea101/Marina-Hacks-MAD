@@ -38,7 +38,7 @@ async function getPosts(vendorName: string) {
             }
         },
         orderBy: {
-            createdAt: 'desc'  // Change 'createdAt' to any other field to reverse based on that
+            createdAt: 'desc' 
         }
     });
     console.log('Fetched Posts:', posts, '\n');
