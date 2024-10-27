@@ -24,7 +24,7 @@ const Features = () => {
                     <Image src={Chipotle} alt="Chipotle" height={100} width={100} className="bottom-0 right-0"/>
                 </button>
             </Link>
-            <Link href = "vendors/dominoes">
+            <Link href = "vendors/dominos">
                 <button className="w-[140px] h-[170px] rounded-[100px] shadow-md bg-white hover:shadow-xl hover:bg-secondary border-4 border-secondary z-0 pt-3">
                     <Image src={Dominoes} alt="Dominoes" height={200} width={200} className="bottom-0 right-0"/>
                 </button>
