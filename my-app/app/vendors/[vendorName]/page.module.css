@@ -1,7 +1,6 @@
 .container {
   background-color: #f8f5ed;
   padding-bottom: 5rem;
-  margin: 3rem auto;
   position: relative;
 }
 
@@ -47,6 +46,42 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+.backButton {
+  position: absolute;
+  top: 1.5rem; /* Adjust the vertical position */
+  left: 1.5rem; /* Adjust the horizontal position */
+  text-decoration: none; /* Remove underline */
+  opacity: 0.7; /* Set low opacity */
+  transition: opacity 0.3s; /* Transition for hover effect */
+}
+
+.backButton:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+.backButtonCircle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 .circle img {
   width: 100%;
   height: 100%;
@@ -76,7 +111,30 @@
   background-color: #45a049;
 }
 
-.plus-sign {
-  display: inline-block;
-  line-height: 5;
+.plusSign {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+}
+
+.plusSign::before,
+.plusSign::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.plusSign::before {
+  width: 0.3rem;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.plusSign::after {
+  height: 0.3rem;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }

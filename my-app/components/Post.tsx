@@ -15,8 +15,8 @@ export default function Post({ id, title, content, author, vendor }: PostProps) 
             <div className={styles.postContainer}>
                 <div className={styles.subjectWrapper}>
                     <h3>{title}</h3>
-                    <h3>-</h3>
-                    <h3>{author.username}</h3>
+                    <h3>|</h3>
+                    <h3>@{author.username}</h3>
                 </div>
                 <p>{content}</p>
             </div>

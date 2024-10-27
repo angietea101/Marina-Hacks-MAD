@@ -9,7 +9,7 @@ const header = () => {
     return (
         <>
             <header className="top-0 py-5">
-                <div className="container mx-auto">
+                <div className="container mx-auto pl-12 pr-12">
                     <div className="flex items-center justify-between">
                         {/* Logo image */}
                         <img src="/logo.png" alt="Logo" height={160} width={170} />

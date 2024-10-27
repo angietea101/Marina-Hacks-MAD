@@ -57,13 +57,18 @@ export default async function VendorPage({
     return (
         <div className={styles.container}>
             <div className={styles.vendorWrapper}>
+                <Link className={styles.backButton} href="/">
+                    <div className={styles.backButtonCircle}>
+                        <div className={`${styles.arrow} ${styles.left}`}></div>
+                    </div>
+                </Link>
                 <div className={styles.circle}>
                     <img src={vendorImages.logo} alt="Circle Image" />
                 </div>
                 <img src={vendorImages.background} alt={`${params.vendorName} background`} className={styles.vendorImage} />
                 <h1 className={styles.vendorTitle}>{params.vendorName}</h1>
                 <Link className={styles.createPostButton} href={`${params.vendorName}/create-post?vendorName=${params.vendorName}`}>
-                    <span className="plus-sign">+</span>
+                    <h1 className={styles.plusSign}></h1>
                 </Link>
             </div>
             {posts.map((post) => (

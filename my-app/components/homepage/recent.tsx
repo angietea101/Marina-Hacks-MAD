@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const Recent = () => {
     return(
-        <div className="container mx-auto md:h-screen">
+        <div className="container mx-auto md:h-screen pl-12 pr-12">
             <p className="text-4xl font-bold text-black text-left mt-20 mb-10">recent orders</p>
         <div className="ml-7 grid grid-cols-3 gap-16">
             <div className="w-[250px] h-[290px] rounded-[30px] shadow-md bg-secondary hover:shadow-xl z-0 pt-7">
