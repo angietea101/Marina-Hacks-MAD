@@ -46,9 +46,9 @@ model Post {
 }
 
 model Vendor {
-  id            Int    @id @default(autoincrement())
-  resturantName String @unique
-  posts         Post[]
+  id         Int    @id @default(autoincrement())
+  vendorName String @unique
+  posts      Post[]
 }
 
 model Tag {
