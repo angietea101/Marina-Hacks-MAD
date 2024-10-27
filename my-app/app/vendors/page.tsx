@@ -8,6 +8,9 @@ import Link from 'next/link';
 import subwayImage from '../../public/subway-background.png'
 import chipotleImage from '../../public/chipotle-background.jpg'
 import dominosImage from '../../public/dominos-background.jpg'
+import frostyImage from '../../public/aisu.png'
+import dunkyImage from '../../public/dunkn.png'
+import gyroImage from '../../public/gyro.png'
 
 const page = async () => {
   const session = await getServerSession(authOptions);
@@ -62,7 +65,7 @@ const page = async () => {
         <div className={styles.rectangleLinkWrapper}>
           <Link href={"vendors/dunkin"}>
             <div className={styles.foodRectangle}>
-              <img className={styles.foodRectangleImage} src={subwayImage.src} alt="Dunkin Donuts" />
+              <img className={styles.foodRectangleImage} src={dunkyImage.src} alt="Dunkin Donuts" />
             </div>
             <span className={styles.link}>Dunkin Donuts</span>
           </Link>
@@ -71,7 +74,7 @@ const page = async () => {
         <div className={styles.rectangleLinkWrapper}>
           <Link href={"vendors/frostbites"}>
             <div className={styles.foodRectangle}>
-              <img className={styles.foodRectangleImage} src={subwayImage.src} alt="Frostbites" />
+              <img className={styles.foodRectangleImage} src={frostyImage.src} alt="Frostbites" />
             </div>
             <span className={styles.link}>Frostbites</span>
           </Link>
@@ -80,7 +83,7 @@ const page = async () => {
         <div className={styles.rectangleLinkWrapper}>
           <Link href={"vendors/cava"}>
             <div className={styles.foodRectangle}>
-              <img className={styles.foodRectangleImage} src={subwayImage.src} alt="Cava" />
+              <img className={styles.foodRectangleImage} src={gyroImage.src} alt="Cava" />
             </div>
             <span className={styles.link}>Cava</span>
           </Link>
